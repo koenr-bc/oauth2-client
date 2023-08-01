@@ -27,12 +27,12 @@ clean:
 	rm -r dist/
 
 dist/build: ${SOURCE_FILES}
-	./node_modules/.bin/tsc
+	npx tsc
 	touch dist/build
 
 .PHONY: browserbuild
 browserbuild: dist/build
 	mkdir -p browser
-	./node_modules/.bin/webpack
+	npx webpack
 
 browser/oauth2-client.min.js: browserbuild
